@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/youruser/myapp.git'
+                git branch: 'main', url: 'https://github.com/Hafsa19work/jenkins-docker-demo.git'
             }
         }
 
