@@ -35,7 +35,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                     python3 -m venv venv
+                     python3 -m venv --clear venv
                      . venv/bin/activate
                      pip install -q -r requirements.txt
                      pytest --junitxml=results.xml
@@ -43,7 +43,7 @@ pipeline {
     }
     post {
         always {
-            junit 'results.xml'
+            junit allowEmptyResults: true, testResults: 'results.xml'
         }
     }
 }
